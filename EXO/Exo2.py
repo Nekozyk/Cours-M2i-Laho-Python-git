@@ -18,7 +18,7 @@ Réaliser un programme en Python permettant à l'utilisateur:
 """
 argent_client = 50.0
 facture = 0.0
-
+article=""
 while True:
     print("Voici la liste des articles disponibles :")
     print("1. Boisson - 5€")
@@ -29,13 +29,13 @@ while True:
     
     match choix:
         case "1":   
-            article = "Boisson"
+            article +="Boisson "
             facture += 5.0
         case "2":   
-            article = "Nourriture"
+            article +="Nourriture "
             facture += 10.0
         case "3":   
-            article = "Dessert"
+            article += "Dessert "
             facture += 7.0
         case "4":
             argent_client -= facture
@@ -50,3 +50,4 @@ while True:
              break
     
 
+1
