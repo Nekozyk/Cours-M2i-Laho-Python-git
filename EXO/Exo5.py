@@ -19,3 +19,25 @@ Le programme devra:
 
 * Faire en sorte que l'on ait un nombre de tentatives limitées par un compteur de vie
 * Réaliser un affichage des gobelets sous la forme d'ASCII art"""
+random = __import__('random')
+goblets = [False, False, False, False, False]
+balle = random.randint(0, 4)
+goblets[balle] = True
+tentatives = 3
+while tentatives > 0:
+    print("Voici les gobelets :")
+    for i in range(len(goblets)):
+        print(f"Gobelet {i + 1}")
+    choix = int(input("Choisissez un gobelet (1-5) : ")) - 1
+    if goblets[choix]:
+        print("Félicitations ! Vous avez trouvé la balle !")
+        break
+    else:
+        print("Dommage, la balle n'est pas là.")
+        tentatives -= 1
+        if tentatives > 0:
+            print(f"Il vous reste {tentatives} tentatives.")
+            random.shuffle(goblets)
+        else:
+            print("Vous avez épuisé toutes vos tentatives. La balle était sous le gobelet " + str(balle + 1) + ".")
+
