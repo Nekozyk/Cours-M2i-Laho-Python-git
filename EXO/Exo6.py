@@ -30,7 +30,7 @@ import getpass
 
 
 mot_mystere = getpass.getpass("Entrez le mot mystère (il ne sera pas affiché): ")
-
+mot_affiche = "_" * len(mot_mystere)
 chance = 5
 
 while chance > 0:
@@ -42,15 +42,13 @@ while chance > 0:
         print(f"Raté! Il vous reste {chance} chances.")
     
     # Affichage du mot avec les lettres trouvées
-    mot_affiche = ""
-    for char in mot_mystere:
-        if char in lettre:
-            mot_affiche += char + " "
-        else:
-            mot_affiche += "_ "
-    
-    print(f"Mot à trouver: {mot_affiche.strip()}")
-    
-    if "_" not in mot_affiche:
+
+    for i in range(len(mot_mystere)):
+        if mot_mystere[i] == lettre:
+            mot_affiche = mot_affiche[:i] + lettre + mot_affiche[i+1:]
+    print("Mot à trouver:", mot_affiche)
+    if mot_mystere == mot_affiche:
         print("Félicitations! Vous avez trouvé le mot.")
         break
+
+print("Le mot mystère était:", mot_mystere)
