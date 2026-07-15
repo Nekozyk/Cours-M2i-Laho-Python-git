@@ -34,6 +34,7 @@ import Fonction
 
 notes = []
 notes_matiere = {}
+
 while True:
     print("""
           === PROGRAMME NOTES ===  
