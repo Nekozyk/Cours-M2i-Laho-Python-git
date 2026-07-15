@@ -1,6 +1,6 @@
-import Combat
+import System_Combat
 from Action_Joueur import Action_Joueur_village
-
+random = __import__('random')
 """
 Arme=>type de des degats
 attaque=> nombre de des
@@ -49,7 +49,7 @@ while True:
              else:
                    ennemy = gobelin
 
-             fuite =  Combat(personnage,ennemy)
+             fuite =  System_Combat.Combat(personnage,ennemy)
 
              if fuite:
               print("Vous avez fuit le combat")
