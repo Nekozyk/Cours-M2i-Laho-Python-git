@@ -1,5 +1,8 @@
 import System_Combat
 from Action_Joueur import Action_Joueur_village
+from Sauvegarde import Sauvegarde_perso
+from Objets import Personnage
+from Objets import Ennemi
 random = __import__('random')
 """
 Arme=>type de des degats
@@ -9,8 +12,12 @@ PV
 bonus arme => bonus arme
 combat => bonus de comat
 """
-personnage = {"PV":10,"Arme":10,"Attaque":1,"Armure":10,"combat":1,"bonus arme":3,"argent":20}
-kobolt =  {"NOM":"Kobolt" ,"PV":5,"Arme":6,"Attaque":1,"Armure":5,"combat":0,"bonus arme":0,"argent":2}
+joueur = Personnage.Perso(10,6,1,10,1,0,20,1,0)
+
+joueur.Save()
+
+
+kobolt =  {"NOM":"Kobolt" ,"PV":5,"Arme":5,"Attaque":1,"Armure":5,"combat":0,"bonus arme":0,"argent":2}
 gobelin = {"NOM":"gobelin","PV":6,"Arme":6,"Attaque":1,"Armure":6,"combat":0,"bonus arme":0,"argent":3}
 prix_arme = 10
 prix_armure = 10
@@ -19,16 +26,17 @@ prix_entrainement = 100
 
 
 while True:
-    choix = 3
-    if personnage["PV"] ==0:
+    choix = 4
+    if joueur.pv ==0:
         print("Vous avez échouer, on vous a secouru, vous vous reveillez au dispancère.")
-        personnage["argent"] /=2
+        joueur.argent /=2
         choix=2
     else:
        print("""Vous êtes devant la caverne à cotés du village
                 1.entrer dans la caverne
                 2.retrouver au village pour se préparer
-                3.Fuir comme un lache""")
+                3.Sauvegarder
+                4.Fuir comme un lache""")
        choix =  int(input("Votre choix"))
 
     match choix:
@@ -71,6 +79,8 @@ while True:
             print("Vous êtes dans le village qui vous a engagé pour nettoyer le nid de monstre non loin")
             Action_Joueur_village(personnage)
         case 3 :
+                break
+        case 4 :
             print("Vous fuyez en abondonnant le village qui vous a engagé. La honte vous poursuivra ")
             break
         case _:

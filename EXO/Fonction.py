@@ -1,4 +1,3 @@
-
 def consulter_notes(notes=[]):
     if not notes :
         print("Aucune note n'a été saisie.")

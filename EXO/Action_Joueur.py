@@ -1,15 +1,22 @@
+random = __import__('random')
 def Action_Joueur_combat(ennemi):
     print(f"""Vous parcourez la galerie, vous rencontrez un {ennemi} que faite vous ?
           
             1.Attaquer
-            2.Fuir comme un lache
+            2.Fuir
+            3.soin
+          
           """)
     choix = int(input("Votre choix : "))
     return choix
 
+def Soin(personnage):
+    personnage["PV"]+= random.randint(1,6)
+    
+
 def Action_forge(personnage):
     print("Vous entrez chez le forgeron qui vous propose d'améliorer votre arme :")
-
+    choix = int(input("améliorer arme : "))
 def Action_amurie(personnage):
     print("Vous entrez chez l'armurier qui vous propose d'améliorer votre armure :")    
 
@@ -18,7 +25,7 @@ def Action_Dispensaire(personnage):
 
 def Action_Camp(personnage):
     print("Vous entrez chez l'instructeur qui vous propose d'améliorer votre compétence martial :")
-    
+
 
 
 def Action_Joueur_village(personnage):
